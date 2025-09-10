@@ -1,0 +1,15 @@
+services:
+    python:
+        build:
+            context: ..
+            dockerfile: docker/python/Dockerfile
+
+        volumes:
+            - ..:/usr/src/app
+            - venv:/usr/src/app/.venv
+
+        stdin_open: true
+        tty: true
+
+volumes:
+    venv:

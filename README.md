@@ -1,2 +1,13 @@
 # learning-python
 And now I need to learn Python...
+
+## Bring up the dev environment:
+```bash
+docker compose -f docker/docker-compose.yml down # optional: --remove-orphans --volumes
+docker compose -f docker/docker-compose.yml build
+docker compose -f docker/docker-compose.yml up --detach
+```
+
+Currently this just runs `bash` and sits there waiting.
+
+There is a shell script `bin/rebuild.sh` that does the above steps in one go (including removing orphans and volumes).
