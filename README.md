@@ -18,7 +18,7 @@ There is a shell script `bin/rebuild.sh` that does the above steps in one go (in
 
 ```bash
 # run tests
-docker exec learning-python-python-1 uv pytest
+docker exec learning-python-python-1 uv run pytest
 
 # run test watcher
 docker exec -it learning-python-python-1 uv run ptw .
