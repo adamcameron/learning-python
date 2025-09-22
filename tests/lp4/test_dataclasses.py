@@ -93,4 +93,22 @@ def test_comparable_field_actual():
 	sleep(1)
 	cannot_compare_2 = ComparableLogEntry("same")
 
-	assert cannot_compare_1 == cannot_compare_2	
+	assert cannot_compare_1 == cannot_compare_2
+
+def test_non_shared_default():
+	l1 = SharedDefault()
+	l2 = SharedDefault()
+
+	l1.add_to_list("TEST_VALUE")
+
+	assert l2.list_of_things == ["TEST_VALUE"]
+	assert l1.list_of_things == l2.list_of_things
+
+def test_person_using_descriptors():
+	z = PersonUsingDescriptors()
+	z.firstName = "zachary"
+	z.lastName = "lynch"
+
+	assert z.firstName == "Zachary"
+	assert z.lastName == "Lynch"
+	assert z.get_full_name() == "Zachary Lynch"

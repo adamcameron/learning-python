@@ -94,3 +94,38 @@ class Guess:
 class ComparableLogEntry:
 	message: str
 	datetime: LocalDateTime = field(default_factory=LocalDateTime.now, compare=False)
+
+class SharedDefault:
+	list_of_things = []
+
+	def add_to_list(self, element):
+		self.list_of_things.append(element)
+
+@dataclass
+class NonsharedDefault:
+	list_of_things: list = field(default_factory=list)
+
+	def add_to_list(self, element):
+		self.list_of_things.append(element)
+
+@dataclass
+class PersonUsingDescriptors:
+	class FirstName():
+		def __get__(self, obj, objtype=None):
+			return obj._firstName
+		
+		def __set__(self, obj, value:str):
+			obj._firstName = value.capitalize()
+	
+	class LastName():
+		def __get__(self, obj, objtype=None):
+			return obj._lastName
+		
+		def __set__(self, obj, value:str):
+			obj._lastName = value.capitalize()
+
+	firstName = FirstName()
+	lastName = LastName()
+
+	def get_full_name(self):
+		return "{0} {1}".format(self.firstName, self.lastName)
