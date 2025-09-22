@@ -1,4 +1,4 @@
-from learningpython.lp4.dataclasses import *
+from learningpython.lp4.dataclasses_examples import *
 from time import sleep
 
 
@@ -83,7 +83,7 @@ def test_slotted_person_adding_property():
 def test_field_with_default_factory():
     log_entry = LogEntry("log message")
     now = datetime.datetime.now()
-    actual_delta = log_entry.datetime - now
+    actual_delta = log_entry.timestamp - now
 
     permitted_delta = datetime.timedelta(seconds=1)
     assert actual_delta < permitted_delta
@@ -120,13 +120,3 @@ def test_non_shared_default():
 
     assert l2.list_of_things == ["TEST_VALUE"]
     assert l1.list_of_things == l2.list_of_things
-
-
-def test_person_using_descriptors():
-    z = PersonUsingDescriptors()
-    z.firstName = "zachary"
-    z.lastName = "lynch"
-
-    assert z.firstName == "Zachary"
-    assert z.lastName == "Lynch"
-    assert z.get_full_name() == "Zachary Lynch"

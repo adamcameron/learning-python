@@ -1,6 +1,3 @@
-from dataclasses import dataclass
-
-
 class Person:
     class FirstName():
         def __get__(self, obj, objtype=None):
