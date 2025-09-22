@@ -1,4 +1,4 @@
-from learningpython.lp4.dataclasses import *
+from learningpython.lp4.dataclasses_examples import *
 import pydoc
 
 
