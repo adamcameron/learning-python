@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 import datetime
-from datetime import datetime as LocalDateTime
 
 
 @dataclass(order=True)
@@ -89,7 +88,7 @@ class SlottedPerson:
 @dataclass
 class LogEntry:
     message: str
-    datetime: LocalDateTime = field(default_factory=LocalDateTime.now)
+    timestamp: datetime.datetime = field(default_factory=datetime.datetime.now)
 
 
 @dataclass
@@ -101,7 +100,7 @@ class Guess:
 @dataclass
 class ComparableLogEntry:
     message: str
-    datetime: LocalDateTime = field(default_factory=LocalDateTime.now, compare=False)
+    timestamp: datetime.datetime = field(default_factory=datetime.datetime.now, compare=False)
 
 
 class SharedDefault:
@@ -117,26 +116,3 @@ class NonsharedDefault:
 
     def add_to_list(self, element):
         self.list_of_things.append(element)
-
-
-@dataclass
-class PersonUsingDescriptors:
-    class FirstName():
-        def __get__(self, obj, objtype=None):
-            return obj._firstName
-
-        def __set__(self, obj, value: str):
-            obj._firstName = value.capitalize()
-
-    class LastName():
-        def __get__(self, obj, objtype=None):
-            return obj._lastName
-
-        def __set__(self, obj, value: str):
-            obj._lastName = value.capitalize()
-
-    firstName = FirstName()
-    lastName = LastName()
-
-    def get_full_name(self):
-        return "{0} {1}".format(self.firstName, self.lastName)
