@@ -5,6 +5,7 @@ import datetime
 @dataclass(order=True)
 class Person:
     """A person with a first and last name."""
+
     first_name: str
     last_name: str
 
@@ -19,6 +20,7 @@ class Person:
 @dataclass(frozen=True)
 class ImmutablePerson:
     """An immutable person with a first and last name."""
+
     first_name: str
     last_name: str
 
@@ -30,6 +32,7 @@ class ImmutablePerson:
 @dataclass
 class ComparablePerson:
     """A person with comparison methods based on their names."""
+
     first_name: str
     last_name: str
     dob: datetime.date  # date of birth
@@ -38,7 +41,7 @@ class ComparablePerson:
         """Returns the full name of the person."""
         return f"{self.first_name} {self.last_name}"
 
-    def __lt__(self, other: 'ComparablePerson') -> bool:
+    def __lt__(self, other: "ComparablePerson") -> bool:
         if self.last_name == other.last_name:
             if self.first_name == other.first_name:
                 return self.dob < other.dob
@@ -48,17 +51,19 @@ class ComparablePerson:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ComparablePerson):
             return NotImplemented
-        return (self.first_name == other.first_name and
-                self.last_name == other.last_name and
-                self.dob == other.dob)
+        return (
+            self.first_name == other.first_name
+            and self.last_name == other.last_name
+            and self.dob == other.dob
+        )
 
-    def __le__(self, other: 'ComparablePerson') -> bool:
+    def __le__(self, other: "ComparablePerson") -> bool:
         return self < other or self == other
 
-    def __gt__(self, other: 'ComparablePerson') -> bool:
+    def __gt__(self, other: "ComparablePerson") -> bool:
         return not (self <= other)
 
-    def __ge__(self, other: 'ComparablePerson') -> bool:
+    def __ge__(self, other: "ComparablePerson") -> bool:
         return not (self < other)
 
     def __ne__(self, other: object) -> bool:
@@ -100,7 +105,9 @@ class Guess:
 @dataclass
 class ComparableLogEntry:
     message: str
-    timestamp: datetime.datetime = field(default_factory=datetime.datetime.now, compare=False)
+    timestamp: datetime.datetime = field(
+        default_factory=datetime.datetime.now, compare=False
+    )
 
 
 class SharedDefault:

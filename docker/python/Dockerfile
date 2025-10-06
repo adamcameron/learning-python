@@ -9,11 +9,7 @@ RUN ["apt-get", "install", "-y", "vim"]
 WORKDIR  /usr/src/app
 
 ENV UV_LINK_MODE=copy
-<<<<<<< HEAD
 ENV PYTHONPYCACHEPREFIX=/var/tmp/.pycache 
-=======
-ENV PYTHONPYCACHEPREFIX=/tmp/__pycache__
->>>>>>> main
 
 RUN \
     --mount=type=cache,target=/root/.cache/uv \

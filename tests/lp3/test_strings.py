@@ -8,17 +8,17 @@ def test_join_strings():
 
 
 def test_join_strings_using_numbers():
-    result = strings.join_strings(123, 456) # type: ignore[error-code]
+    result = strings.join_strings(123, 456)  # type: ignore[error-code]
     assert result == "123 456"
 
 
 def test_join_strings_using_booleans():
-    result = strings.join_strings(True, False) # type: ignore[error-code]
+    result = strings.join_strings(True, False)  # type: ignore[error-code]
     assert result == "True False"
 
 
 def test_join_strings_using_none():
-    result = strings.join_strings(None, None) # type: ignore[error-code]
+    result = strings.join_strings(None, None)  # type: ignore[error-code]
     assert result == "None None"
 
 
