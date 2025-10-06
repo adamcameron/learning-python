@@ -1,5 +1,16 @@
-from learningpython.lp4.dataclasses_examples import *
+from learningpython.lp4.dataclasses_examples import (
+    Person,
+    ImmutablePerson,
+    ComparablePerson,
+    KeywordOnlyPerson,
+    SlottedPerson,
+    LogEntry,
+    Guess,
+    ComparableLogEntry,
+    SharedDefault,
+)
 from time import sleep
+import datetime
 
 
 def test_person_full_name():
@@ -57,7 +68,7 @@ def test_keyword_only_person():
 
 def test_keyword_only_trying_positional():
     try:
-        person = KeywordOnlyPerson("Zachary", "Lynch")
+        KeywordOnlyPerson("Zachary", "Lynch")
         assert False, (
             "Expected a TypeError when trying to instantiate with positional arguments"
         )
@@ -93,7 +104,7 @@ def test_field_with_default_factory():
 
 def test_init_non_init_field():
     try:
-        guess = Guess("cat", "dog")
+        Guess("cat", "dog")
     except TypeError:
         pass  # Expected
 
