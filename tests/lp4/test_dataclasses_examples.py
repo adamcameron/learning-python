@@ -58,7 +58,9 @@ def test_keyword_only_person():
 def test_keyword_only_trying_positional():
     try:
         person = KeywordOnlyPerson("Zachary", "Lynch")
-        assert False, "Expected a TypeError when trying to instantiate with positional arguments"
+        assert False, (
+            "Expected a TypeError when trying to instantiate with positional arguments"
+        )
     except TypeError:
         pass  # Expected
 

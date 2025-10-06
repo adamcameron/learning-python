@@ -1,12 +1,12 @@
 class Person:
-    class FirstName():
+    class FirstName:
         def __get__(self, obj, objtype=None):
             return obj._first_name
 
         def __set__(self, obj, value: str):
             obj._first_name = value.capitalize()
 
-    class LastName():
+    class LastName:
         def __get__(self, obj, objtype=None):
             return obj._last_name
 
