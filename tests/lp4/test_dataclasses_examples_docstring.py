@@ -1,4 +1,6 @@
-from learningpython.lp4.dataclasses_examples import *
+from learningpython.lp4.dataclasses_examples import (
+    Person
+)
 import pydoc
 
 

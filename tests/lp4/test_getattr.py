@@ -1,4 +1,4 @@
-from learningpython.lp4.getattr import *
+from learningpython.lp4.getattr import (Person)
 
 
 def test_full_name():
