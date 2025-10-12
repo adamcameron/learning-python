@@ -27,5 +27,8 @@ docker exec -it learning-python-python-1 uv run ptw .
 docker exec learning-python-python-1 uvx ruff check
 
 # fix code formatting
-docker exec learning-python-python-1 uvx ruff format
+docker exec learning-python-python-1 uvx ruff format --diff
+
+# check pyright for static typechecking issues
+docker exec learning-python-python-1 uvx pyright
 ```

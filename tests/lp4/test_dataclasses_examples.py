@@ -49,7 +49,7 @@ def test_updating_property():
 def test_cannot_update_frozen_dataclass():
     person = ImmutablePerson("Zachary", "Lynch")
     try:
-        person.first_name = "Joe"
+        person.first_name = "Joe"  # pyright: ignore[reportAttributeAccessIssue]
         assert False, "Expected an exception when trying to modify a frozen dataclass"
     except AttributeError:
         pass  # Expected
@@ -68,7 +68,7 @@ def test_keyword_only_person():
 
 def test_keyword_only_trying_positional():
     try:
-        KeywordOnlyPerson("Zachary", "Lynch")
+        KeywordOnlyPerson("Zachary", "Lynch")  # pyright: ignore[reportCallIssue]
         assert False, (
             "Expected a TypeError when trying to instantiate with positional arguments"
         )
@@ -79,15 +79,15 @@ def test_keyword_only_trying_positional():
 def test_person_adding_property():
     person = Person("Zachary", "Lynch")
     dob = datetime.date(2011, 3, 24)
-    person.dob = dob
+    person.dob = dob  # pyright: ignore[reportAttributeAccessIssue]
 
-    assert person.dob == dob
+    assert person.dob == dob  # pyright: ignore[reportAttributeAccessIssue]
 
 
 def test_slotted_person_adding_property():
     try:
         person = SlottedPerson("Zachary", "Lynch")
-        person.dob = datetime.date(2011, 3, 24)
+        person.dob = datetime.date(2011, 3, 24)  # pyright: ignore[reportAttributeAccessIssue]
         assert False, "Expected a TypeError when trying to add a property"
     except AttributeError:
         pass  # Expected
@@ -104,7 +104,7 @@ def test_field_with_default_factory():
 
 def test_init_non_init_field():
     try:
-        Guess("cat", "dog")
+        Guess("cat", "dog")  # pyright: ignore[reportCallIssue]
     except TypeError:
         pass  # Expected
 

@@ -11,6 +11,9 @@ WORKDIR  /usr/src/app
 ENV UV_LINK_MODE=copy
 ENV PYTHONPYCACHEPREFIX=/var/tmp/.pycache
 
+RUN uv tool install ruff
+RUN uv tool install pyright
+
 RUN \
     --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
