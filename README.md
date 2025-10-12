@@ -23,9 +23,22 @@ docker exec learning-python-python-1 uv run pytest
 # run test watcher
 docker exec -it learning-python-python-1 uv run ptw .
 
+
 # check code syntax
 docker exec learning-python-python-1 uvx ruff check
 
 # fix code formatting
+<<<<<<< Updated upstream
 docker exec learning-python-python-1 uvx ruff format
+=======
+## show the diff
+docker exec learning-python-python-1 uvx ruff format --diff
+
+## actually do it
+docker exec learning-python-python-1 uvx ruff format
+
+
+# check pyright for static typechecking issues
+docker exec learning-python-python-1 uvx pyright
+>>>>>>> Stashed changes
 ```

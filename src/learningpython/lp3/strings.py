@@ -34,7 +34,7 @@ def iterate_string_with_indexes(s: str):
 
 
 def returns_compound_string_literal():
-    return "tahiruatoruwhā"
+    return "tahi" "rua" "toru" "whā"  # fmt: skip
 
 
 def get_char_at_index(s: str, index: int):
