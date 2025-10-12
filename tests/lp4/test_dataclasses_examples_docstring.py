@@ -12,7 +12,7 @@ def test_class_doc_string():
     z = get_test_person()
 
     help_text = z.__doc__
-
+    assert help_text is not None
     assert "A person with a first and last name." in help_text
 
 
@@ -21,6 +21,7 @@ def test_method_doc_string():
 
     help_text = z.get_full_name.__doc__
 
+    assert help_text is not None
     assert "Returns the full name of the person." in help_text
 
 

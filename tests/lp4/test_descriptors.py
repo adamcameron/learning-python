@@ -1,4 +1,4 @@
-from learningpython.lp4.descriptors import (Person)
+from learningpython.lp4.descriptors import Person
 
 
 def test_person_values():
