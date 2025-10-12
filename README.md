@@ -29,6 +29,6 @@ docker exec learning-python-python-1 uvx ruff check
 # fix code formatting
 docker exec learning-python-python-1 uvx ruff format --diff
 
-# check pyright fro static typechecking issues
+# check pyright for static typechecking issues
 docker exec learning-python-python-1 uvx pyright
 ```
